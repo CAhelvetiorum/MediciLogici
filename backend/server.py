@@ -213,7 +213,7 @@ async def list_doctors(q: Optional[str] = None):
                 {"biography": {"$regex": q, "$options": "i"}},
             ]
         }
-    cursor = db.doctors.find(query).sort("name", 1)
+    cursor = db.doctors.find(query).sort("name", 1).limit(1000)
     return [doctor_from_mongo(d) async for d in cursor]
 
 

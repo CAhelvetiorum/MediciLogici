@@ -1,0 +1,56 @@
+{
+    "doctors": [
+        {
+            "id": "zabarella",
+            "name": "Jacopo Zabarella",
+            "latin_name": "Iacobus Zabarella",
+            "birth_year": 1533,
+            "death_year": 1589,
+            "dates_label": "1533–1589",
+            "nationality": "Italian",
+            "affiliations": ["University of Padua"],
+            "biography": "Italian Aristotelian philosopher and logician at Padua, whose treatises on method (regressus) shaped the methodological reflection of physicians trained in the Paduan school.",
+            "logical_works": [
+                "Opera logica (1578)",
+                "De methodis (1578)",
+                "De regressu"
+            ],
+            "medical_works": [],
+            "notable_connections": ["Galileo Galilei", "Cesare Cremonini"],
+            "sources": ["Mikkeli, H. (1992). An Aristotelian Response to Renaissance Humanism."],
+            "image_url": ""
+        },
+        {
+            "id": "sanctorius",
+            "name": "Sanctorius Sanctorius",
+            "latin_name": "Santorio Santori",
+            "birth_year": 1561,
+            "death_year": 1636,
+            "dates_label": "1561–1636",
+            "nationality": "Italian",
+            "affiliations": ["University of Padua"],
+            "biography": "Venetian physician, founder of quantitative iatromechanics; his Methodi vitandorum errorum (1603) is a sustained application of logical method to medicine.",
+            "logical_works": ["Methodi vitandorum errorum (1603)"],
+            "medical_works": ["De statica medicina (1614)"],
+            "notable_connections": ["Galileo Galilei", "Fabricius ab Aquapendente"],
+            "sources": ["Bigotti, F. (2019). Physiology of the Soul."],
+            "image_url": ""
+        },
+        {
+            "id": "sennert",
+            "name": "Daniel Sennert",
+            "latin_name": "Daniel Sennertus",
+            "birth_year": 1572,
+            "death_year": 1637,
+            "dates_label": "1572–1637",
+            "nationality": "German",
+            "affiliations": ["University of Wittenberg"],
+            "biography": "Wittenberg physician and natural philosopher who deployed an Aristotelian-corpuscular logic in his medical works, mediating between scholastic logic and emerging chymistry.",
+            "logical_works": ["Epitome naturalis scientiae (1618)"],
+            "medical_works": ["Institutionum medicinae libri V (1611)"],
+            "notable_connections": ["Andreas Libavius"],
+            "sources": ["Newman, W. R. (2006). Atoms and Alchemy."],
+            "image_url": ""
+        }
+    ]
+}

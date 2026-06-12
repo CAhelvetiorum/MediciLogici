@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { api } from "@/lib/api";
+import { dataUrl } from "@/lib/api";
 
 export default function ProsopographyPage() {
     const [doctors, setDoctors] = useState([]);
@@ -11,9 +11,10 @@ export default function ProsopographyPage() {
         let active = true;
         (async () => {
             try {
-                const { data } = await api.get("/doctors");
-                if (active) setDoctors(data);
-            } catch (e) {
+                const res = await fetch(dataUrl("data/doctors.json"));
+                const json = await res.json();
+                if (active) setDoctors(Array.isArray(json.doctors) ? json.doctors : []);
+            } catch {
                 if (active) setDoctors([]);
             } finally {
                 if (active) setLoading(false);
@@ -36,8 +37,9 @@ export default function ProsopographyPage() {
     }, [doctors, q]);
 
     const grouped = useMemo(() => {
+        const sorted = [...filtered].sort((a, b) => (a.name || "").localeCompare(b.name || ""));
         const map = new Map();
-        for (const d of filtered) {
+        for (const d of sorted) {
             const letter = (d.name || "?").charAt(0).toUpperCase();
             if (!map.has(letter)) map.set(letter, []);
             map.get(letter).push(d);

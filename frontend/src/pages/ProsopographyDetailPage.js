@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { api } from "@/lib/api";
+import { dataUrl } from "@/lib/api";
 
 export default function ProsopographyDetailPage() {
     const { id } = useParams();
@@ -11,9 +11,13 @@ export default function ProsopographyDetailPage() {
         let active = true;
         (async () => {
             try {
-                const { data } = await api.get(`/doctors/${id}`);
-                if (active) setD(data);
-            } catch (e) {
+                const res = await fetch(dataUrl("data/doctors.json"));
+                const json = await res.json();
+                const found = (json.doctors || []).find((x) => x.id === id);
+                if (!active) return;
+                if (!found) setError("Entry not found.");
+                else setD(found);
+            } catch {
                 if (active) setError("Entry not found.");
             }
         })();

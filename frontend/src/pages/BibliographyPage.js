@@ -1,6 +1,28 @@
-import bibliography from "@/data/bibliography.json";
+import { useEffect, useState } from "react";
+import { dataUrl } from "@/lib/api";
 
 export default function BibliographyPage() {
+    const [data, setData] = useState({ primary_sources: [], secondary_literature: [] });
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        let active = true;
+        (async () => {
+            try {
+                const res = await fetch(dataUrl("data/bibliography.json"));
+                const json = await res.json();
+                if (active) setData(json);
+            } catch {
+                // keep empty fallback
+            } finally {
+                if (active) setLoading(false);
+            }
+        })();
+        return () => {
+            active = false;
+        };
+    }, []);
+
     return (
         <section data-testid="bibliography-page" className="max-w-3xl mx-auto px-6 lg:px-10 pt-16 lg:pt-24 pb-24">
             <header className="mb-12">
@@ -15,16 +37,22 @@ export default function BibliographyPage() {
                 </p>
             </header>
 
-            <Group
-                heading="Primary Sources"
-                items={bibliography.primary_sources}
-                testid="bibliography-primary"
-            />
-            <Group
-                heading="Secondary Literature"
-                items={bibliography.secondary_literature}
-                testid="bibliography-secondary"
-            />
+            {loading ? (
+                <p className="font-serif italic text-ink-muted">Loading bibliography…</p>
+            ) : (
+                <>
+                    <Group
+                        heading="Primary Sources"
+                        items={data.primary_sources || []}
+                        testid="bibliography-primary"
+                    />
+                    <Group
+                        heading="Secondary Literature"
+                        items={data.secondary_literature || []}
+                        testid="bibliography-secondary"
+                    />
+                </>
+            )}
         </section>
     );
 }

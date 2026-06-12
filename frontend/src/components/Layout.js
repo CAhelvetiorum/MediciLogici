@@ -86,15 +86,6 @@ function Footer() {
                         Typeset in Cormorant Garamond, Spectral and Cardo.
                         Last revised {new Date().getFullYear()}.
                     </p>
-                    <p className="mt-3">
-                        <Link
-                            to="/admin/login"
-                            data-testid="footer-admin-link"
-                            className="hover:text-oxblood smallcaps text-[11px]"
-                        >
-                            Editorial Access
-                        </Link>
-                    </p>
                 </div>
             </div>
         </footer>

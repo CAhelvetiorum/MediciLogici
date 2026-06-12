@@ -1,0 +1,37 @@
+{
+  "summary": "First iteration full-stack testing for Medici Logici (Doctors-Logicians research site). 12/12 backend pytest tests passed; full frontend e2e flow including admin CRUD, network embed save, auth persistence and logout all working.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "/api/auth/me & /api/doctors/{id}", "issue": "ObjectId(payload['sub']) / ObjectId(doctor_id) on auth/me would raise bson.errors.InvalidId (uncaught) leading to 500 if a malformed token sub is supplied. Doctor detail correctly wraps in try/except. Recommend wrapping ObjectId conversion in get_current_user too."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {"flow": "Login error display", "issue": "Wrong-credentials response shows no element matching .error/[class*='error'] selector. Backend correctly returns 401, but error message styling may be using a different class (likely inline span). Verify users see a visible error toast/message on failed login.", "affected_selectors": [".error", "[class*='error']"]}
+    ],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "(Optional) wrap ObjectId() calls in get_current_user to return 401 instead of 500 on malformed JWT sub.",
+    "Verify login error message has data-testid (e.g., 'login-error') and is visible to user when 401 returned."
+  ],
+  "critical_code_review_comments": [
+    "Auth: bcrypt $2b$ hashing used correctly; seed_admin idempotently updates password when ADMIN_PASSWORD changes.",
+    "Cookies set with httpOnly, secure=True, samesite='none' — appropriate for cross-site preview HTTPS; frontend also uses Authorization Bearer header (localStorage) — both paths verified.",
+    "Mongo _id correctly excluded from responses via doctor_from_mongo serializer.",
+    "CORS: when CORS_ORIGINS='*' allow_credentials=False (correct, browser would reject credentials+wildcard); when explicit origins, credentials enabled.",
+    "No brute-force lockout implemented (playbook mentions 5-fail lockout). Currently any number of bad logins return 401 without rate limit — consider adding if required.",
+    "server.py is single-file ~410 lines (under 700-line threshold); acceptable for current scope but split routers if growing."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py", "/app/test_reports/iteration_1.json"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "admin@research.local / changeMe-2026! (from /app/memory/test_credentials.md)",
+  "seed_data_creation": "Test doctor 'TEST_Doctor' was created and deleted by pytest CRUD test; frontend test created and deleted 'Test Doctor' through admin UI. Network embed in DB was overwritten with sample '<html>...hello</body></html>' / 'Test caption' by both pytest and frontend test; this means /networks now renders that placeholder iframe instead of empty state for future runs.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend pytest at /app/backend/tests/backend_test.py covers auth, doctors CRUD, network. Network embed in MongoDB was overwritten during testing (db.settings._id='network' now holds '<html><body>hello</body></html>'). To re-test the 'no embed' placeholder on /networks, delete that settings doc first. Seed admin and 3 seed doctors are inserted only when collections are empty.",
+  "rca of the issue": "No reproducible issues; minor recommendations only."
+}

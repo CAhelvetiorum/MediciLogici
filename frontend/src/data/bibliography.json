@@ -1,0 +1,73 @@
+{
+    "primary_sources": [
+        {
+            "author": "Zabarella, Iacobus",
+            "title": "Opera logica",
+            "place": "Venetiis",
+            "year": 1578,
+            "notes": "Includes De methodis and De regressu, foundational for the methodological reflection of Paduan physicians."
+        },
+        {
+            "author": "Santorio, Santorio",
+            "title": "Methodi vitandorum errorum omnium qui in arte medica contingunt",
+            "place": "Venetiis",
+            "year": 1603,
+            "notes": "A sustained application of logical method to medicine."
+        },
+        {
+            "author": "Sennert, Daniel",
+            "title": "Institutionum medicinae libri V",
+            "place": "Wittebergae",
+            "year": 1611
+        },
+        {
+            "author": "Cremonini, Cesare",
+            "title": "Apologia dictorum Aristotelis de Quinta Coeli substantia",
+            "place": "Venetiis",
+            "year": 1616
+        },
+        {
+            "author": "Sennert, Daniel",
+            "title": "Epitome naturalis scientiae",
+            "place": "Wittebergae",
+            "year": 1618
+        }
+    ],
+    "secondary_literature": [
+        {
+            "author": "Mikkeli, Heikki",
+            "title": "An Aristotelian Response to Renaissance Humanism: Jacopo Zabarella on the Nature of Arts and Sciences",
+            "place": "Helsinki",
+            "publisher": "Finnish Historical Society",
+            "year": 1992
+        },
+        {
+            "author": "Bigotti, Fabrizio",
+            "title": "Physiology of the Soul: Mind, Body and Matter in the Galenic Tradition of the Late Renaissance (1550–1630)",
+            "place": "Turnhout",
+            "publisher": "Brepols",
+            "year": 2019
+        },
+        {
+            "author": "Newman, William R.",
+            "title": "Atoms and Alchemy: Chymistry and the Experimental Origins of the Scientific Revolution",
+            "place": "Chicago",
+            "publisher": "University of Chicago Press",
+            "year": 2006
+        },
+        {
+            "author": "Maclean, Ian",
+            "title": "Logic, Signs and Nature in the Renaissance: The Case of Learned Medicine",
+            "place": "Cambridge",
+            "publisher": "Cambridge University Press",
+            "year": 2002
+        },
+        {
+            "author": "Schmitt, Charles B.",
+            "title": "Aristotle and the Renaissance",
+            "place": "Cambridge, MA",
+            "publisher": "Harvard University Press",
+            "year": 1983
+        }
+    ]
+}

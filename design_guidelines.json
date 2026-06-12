@@ -1,0 +1,84 @@
+{
+  "project_context": {
+    "domain": "Academic Research / History of Medicine",
+    "theme": "Light",
+    "archetype": "1 - Organic & Earthy (Classical Academic variant)",
+    "aesthetic_description": "Restrained, typographically rich, classical proportions. Think Cambridge / Sorbonne digital humanities project. No SaaS features, no cards, no neon, no gradients, no purple/violet. Elegantly typeset scholarly monograph rendered for the web."
+  },
+  "typography": {
+    "font_family_headings": "Cormorant Garamond",
+    "font_family_body": "Spectral",
+    "font_family_metadata": "Cardo",
+    "heading_rules": {
+      "h1": "text-5xl lg:text-6xl tracking-tight font-medium leading-none text-[#2B2A27]",
+      "h2": "text-3xl lg:text-4xl tracking-tight font-medium leading-tight text-[#2B2A27]",
+      "h3": "text-2xl font-normal italic text-[#2B2A27]",
+      "special": "Use drop caps for the first paragraph of the Project presentation page. Use small caps ([font-variant-caps:small-caps]) with tracking-widest for top navigation."
+    },
+    "body_rules": {
+      "standard": "text-lg lg:text-xl leading-relaxed text-[#2B2A27]",
+      "line_length": "Restrict reading text to max-w-[70ch] to ensure comfortable reading."
+    }
+  },
+  "color_palette": {
+    "background_primary": "#F5F3EC",
+    "background_secondary": "#EAE7DE",
+    "text_primary": "#2B2A27",
+    "text_secondary": "#57534A",
+    "accent_primary": "#7A2522",
+    "accent_secondary": "#1C2D42",
+    "border_color": "#D4CFC4",
+    "forbidden_colors": [
+      "purple",
+      "violet",
+      "teal",
+      "neon",
+      "cyan",
+      "#1B93A4",
+      "#9D4CDD"
+    ]
+  },
+  "layout_and_spacing": {
+    "global_spacing": "Generous academic spacing. Use py-20 to py-32 for page sections.",
+    "alignment": "Left-align paragraphs and lists. Center align hero titles only for formal title pages.",
+    "grid_system": "Avoid bento boxes and SaaS dashboards. Use classical textual hierarchy, single-column prose for essays. For data, use simple table or list layouts with subtle bottom borders (border-b border-[#D4CFC4])."
+  },
+  "component_instructions": {
+    "general": "Never use standard cards with drop shadows. Use pure text or flat surfaces with 0px radius (rounded-none). No emojis.",
+    "navigation": "Classic top navigation. Small caps. Underline indicator for active state using Oxblood accent (#7A2522). Include discrete Admin link in footer.",
+    "project_page": "Long-form academic prose. Implement a large drop cap for the first letter of the content. Centered max-w-[70ch] container.",
+    "prosopography_page": "Searchable/filterable list. Present as an academic index (e.g., Name, Dates, Affiliations) divided by thin horizontal rules. Profile pages should feel like dictionary entries.",
+    "bibliography_section": "Static list rendered from JSON. Grouped by primary sources vs secondary literature. Use standard academic citation formatting (hanging indents, pl-8 -ml-8).",
+    "networks_page": "Full-bleed embed. Use an iframe for the interactive HTML file. Include a short scholarly caption below it.",
+    "admin_dashboard": "Restrained, classical interpretation of an admin panel. No SaaS rounded components. Use flat Shadcn components heavily customized to rounded-none, with #F5F3EC backgrounds and #7A2522 borders/accents.",
+    "interactive_elements": "Hover states should be subtle, e.g., text color shifting to #7A2522. Buttons should be solid #2B2A27 or outlined with sharp corners."
+  },
+  "technical_requirements": {
+    "testing": "All interactive and key informational elements MUST include a data-testid attribute (kebab-case, role-based).",
+    "file_extension": "Use .js files for React components. Do NOT use .tsx.",
+    "libraries": [
+      "lucide-react",
+      "react-router-dom"
+    ],
+    "styling": "Tailwind CSS. Apply custom colors and fonts in tailwind.config.js."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.unsplash.com/photo-1715529134960-b49e99668dcc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHxhbnRpcXVlJTIwbWVkaWNhbCUyMGVuZ3JhdmluZ3xlbnwwfHx8fDE3ODEyNjQ0NzB8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Antique medical anatomy diagram.",
+        "category": "prosopography_hero_or_accent"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1567910640027-4029c4d8e9e0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwzfHxvbGQlMjBoaXN0b3JpY2FsJTIwbWFwJTIwcGFyY2htZW50fGVufDB8fHx8MTc4MTI2NDQ3MHww&ixlib=rb-4.1.0&q=85",
+        "description": "Historical map sketch on parchment.",
+        "category": "networks_page_accent"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1534289855405-ab820a118fc1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwxfHxvbGQlMjBtYW51c2NyaXB0JTIwYm9va3xlbnwwfHx8fDE3ODEyNjQ0NTl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Brown hardbound old manuscript.",
+        "category": "project_page_hero"
+      }
+    ]
+  }
+}
